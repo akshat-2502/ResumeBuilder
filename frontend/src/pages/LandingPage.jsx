@@ -85,6 +85,27 @@ const LandingPage = () => {
           </div>
         )}
       </header>
+
+      {/* MAIN CONTENT */}
+      <main className={landingPageStyles.main}>
+        <section className={landingPageStyles.heroSection}>
+          <div className={landingPageStyles.heroGrid}>
+            {/* LEFT CONTENT */}
+            <div className={landingPageStyles.heroLeft}>
+              <div className={landingPageStyles.tagline}>
+                Professional Resume Builder
+              </div>
+              <h1 className={landingPageStyles.heading}>
+                <span className={landingPageStyles.headingText}>Craft</span>
+                <span className={landingPageStyles.headingGradient}>
+                  Professional
+                </span>
+                <span className={landingPageStyles.headingText}>Resume</span>
+              </h1>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };
