@@ -2,7 +2,7 @@ import mongoose, { mongo } from "mongoose";
 
 const ResumeSchema = new mongoose.Schema(
   {
-    userdId: {
+    userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
