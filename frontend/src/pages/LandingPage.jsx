@@ -373,6 +373,20 @@ const LandingPage = () => {
             </div>
           </div>
         </section>
+
+        {/* FEATURES SECTION */}
+        <section className={landingPageStyles.featuresSection}>
+          <div className={landingPageStyles.featuresContainer}>
+            <div className={landingPageStyles.featuresHeader}>
+              <h2 className={landingPageStyles.featuresTitle}>
+                Why Choose{" "}
+                <span className={landingPageStyles.featuresTitleGradient}>
+                  ResumeXpert
+                </span>
+              </h2>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
