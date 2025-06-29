@@ -127,7 +127,7 @@ const Dashboard = () => {
       toast.error("Failed to delete resume");
     } finally {
       setResumeToDelete(null);
-      showDeleteConfirm(false);
+      setShowDeleteConfirm(false);
     }
   };
 
