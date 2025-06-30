@@ -1,5 +1,6 @@
 import React from "react";
 import { shimmerStyle } from "../assets/dummystyle";
+import { Check } from "react-feather";
 
 const StepProgress = ({ progress }) => {
   return (
@@ -67,7 +68,9 @@ const StepProgress = ({ progress }) => {
 
         <div className="flex items-center gap-2">
           {progress === 100 && (
-            <div className="w-6 h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center"></div>
+            <div className="w-6 h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+              <Check size={12} className="text-white" />
+            </div>
           )}
         </div>
       </div>
