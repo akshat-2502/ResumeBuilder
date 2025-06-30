@@ -837,6 +837,21 @@ const EditResume = () => {
           </div>
         </div>
       </div>
+
+      {/* MODAL DATA HERE */}
+      <Modal
+        isOpen={openThemeSelector}
+        onClose={() => setOpenThemeSelector(false)}
+        title="Change Title"
+      >
+        <div className={containerStyles.modalContent}>
+          <ThemeSelector
+            selectedTheme={resumeData?.template?.theme}
+            setSelectedTheme={updateTheme}
+            onClose={() => setOpenThemeSelector(false)}
+          />
+        </div>
+      </Modal>
     </DashboardLayout>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { DUMMY_RESUME_DATA, resumeTemplates } from "../utils/data";
 import Tabs from "./Tabs";
 import { Check } from "lucide-react";
@@ -35,6 +35,16 @@ const ThemeSelector = ({
       setBaseWidth(resumeRef.current.offsetWidth);
     }
   };
+
+  useEffect(() => {
+    updateBaseWidth();
+
+    window.addEventListener("resize", updateBaseWidth);
+
+    return () => {
+      window.removeEventListener("resize", updateBaseWidth);
+    };
+  }, []);
 
   return (
     <div className=" max-w-7xl mx-auto px-4">
