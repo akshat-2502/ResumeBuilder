@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import moment from "moment";
 import CreateResumeForm from "../components/CreateResumeForm";
 import Modal from "../components/Modal";
+import { ResumeSummaryCard } from "../components/Cards";
 
 const Dashboard = () => {
   const navigate = useNavigate();
