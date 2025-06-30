@@ -15,6 +15,7 @@ import {
   AlertCircle,
   ArrowLeft,
   Download,
+  Loader2,
   Palette,
   Save,
   Trash2,
@@ -34,6 +35,8 @@ import {
   WorkExperienceForm,
 } from "./Forms";
 import ThemeSelector from "./ThemeSelector";
+import RenderResume from "./RenderResume";
+import Modal from "./Modal";
 
 // RESIZE OBSERVER HOOK
 const useResizeObserver = () => {
@@ -866,7 +869,50 @@ const EditResume = () => {
             ? "Downloaded!"
             : "Download PDF"
         }
-      />
+        actionBtnIcon={
+          isDownloading ? (
+            <Loader2 size={16} className="animate-spin" />
+          ) : downloadSuccess ? (
+            <Check size={16} className="text-white" />
+          ) : (
+            <Download size={16} />
+          )
+        }
+        onActionClick={downloadPDF}
+      >
+        <div className="relative">
+          <div className="text-center mb-4">
+            <div className={statusStyles.modalBadge}>
+              <div className={iconStyles.pulseDot}></div>
+              <span>Completion: {completionPercentage}%</span>
+            </div>
+          </div>
+
+          <div className={containerStyles.pdfPreview}>
+            <div ref={resumeDownloadRef} className="a4-wrapper">
+              <div className="w-full h-full">
+                <RenderResume
+                  key={`pdf-${resumeData?.template?.theme}`}
+                  templateId={resumeData?.template?.theme || ""}
+                  resumeData={resumeData}
+                  containerWidth={null}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Modal>
+
+      {/* THUMBNAIL ERROR FIX */}
+      <div style={{ display: "none" }} ref={thumbnailRef}>
+        <div className={containerStyles.hiddenThumbnail}>
+          <RenderResume
+            key={`thumb-${resumeData?.template?.theme}`}
+            templateId={resumeData?.template?.theme || ""}
+            resumeData={resumeData}
+          />
+        </div>
+      </div>
     </DashboardLayout>
   );
 };
