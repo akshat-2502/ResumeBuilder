@@ -33,6 +33,7 @@ import {
   SkillsInfoForm,
   WorkExperienceForm,
 } from "./Forms";
+import ThemeSelector from "./ThemeSelector";
 
 // RESIZE OBSERVER HOOK
 const useResizeObserver = () => {
@@ -852,6 +853,20 @@ const EditResume = () => {
           />
         </div>
       </Modal>
+
+      <Modal
+        isOpen={openPreviewModal}
+        onClose={() => setOpenPreviewModal(false)}
+        title={resumeData.title}
+        showActionBtn
+        actionBtnText={
+          isDownloading
+            ? "Generating..."
+            : downloadSuccess
+            ? "Downloaded!"
+            : "Download PDF"
+        }
+      />
     </DashboardLayout>
   );
 };
